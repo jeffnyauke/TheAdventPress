@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~
+  ~  Copyright (c) 2020 jeffnyauke@gmail.com
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--Themes-->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="AppTheme.BackgroundStyle">
+        <item name="android:background">@color/primaryLight</item>
+    </style>
+
+    <style name="AppTheme.SurfaceStyle">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="AppTheme.FloatingActionButton" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+        <item name="tint">@color/primary</item>
+        <item name="backgroundTint">@color/accent</item>
+    </style>
+
+    <!--Text appearances-->
+    <style name="TextAppearance.Title" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/textHeadline</item>
+    </style>
+
+    <style name="TextAppearance.CardTitle" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/textBody</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.Body" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/textBody</item>
+    </style>
+</resources>

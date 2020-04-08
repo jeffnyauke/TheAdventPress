@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~
+  ~  Copyright (c) 2020 jeffnyauke@gmail.com
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="press.advent.dynamicfeatures.articleslist.ui.list.CharactersListViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{() -> viewModel.refreshLoadedCharactersList()}"
+        app:refreshing="@{viewModel.state.refreshing}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/include_list"
+                layout="@layout/view_characters_list"
+                app:viewState="@{viewModel.state}" />
+
+            <include
+                android:id="@+id/include_list_empty"
+                layout="@layout/view_characters_list_empty"
+                app:viewState="@{viewModel.state}" />
+
+            <include
+                android:id="@+id/include_list_error"
+                layout="@layout/view_characters_list_error"
+                app:viewState="@{viewModel.state}" />
+
+            <include
+                android:id="@+id/include_list_loading"
+                layout="@layout/view_characters_list_loading"
+                app:viewState="@{viewModel.state}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>

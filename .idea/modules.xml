@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TheAdventPress.iml" filepath="$PROJECT_DIR$/.idea/modules/TheAdventPress.iml" group="TheAdventPress" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TheAdventPress_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/TheAdventPress_buildSrc.iml" group="TheAdventPress/TheAdventPress_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="TheAdventPress/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/articles_favorites/articles_favorites.iml" filepath="$PROJECT_DIR$/.idea/modules/features/articles_favorites/articles_favorites.iml" group="TheAdventPress/features/articles_favorites" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/articles_list/articles_list.iml" filepath="$PROJECT_DIR$/.idea/modules/features/articles_list/articles_list.iml" group="TheAdventPress/features/articles_list" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/commons.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/commons.iml" group="TheAdventPress/commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/core.iml" group="TheAdventPress/core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/features.iml" filepath="$PROJECT_DIR$/.idea/modules/features/features.iml" group="TheAdventPress/features" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/home/home.iml" filepath="$PROJECT_DIR$/.idea/modules/features/home/home.iml" group="TheAdventPress/features/home" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" group="TheAdventPress/libraries" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/test_utils/test_utils.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/test_utils/test_utils.iml" group="TheAdventPress/libraries/test_utils" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/ui/ui.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/ui/ui.iml" group="TheAdventPress/commons/ui" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commons/views/views.iml" filepath="$PROJECT_DIR$/.idea/modules/commons/views/views.iml" group="TheAdventPress/commons/views" />
+    </modules>
+  </component>
+</project>
