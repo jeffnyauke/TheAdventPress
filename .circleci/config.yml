@@ -20,6 +20,9 @@ jobs:
       - restore_cache:
           key: gradle-{{ checksum "build.gradle.kts" }}
       - run:
+          name: Grant execute permission for gradlew
+          command: chmod +x ./gradlew
+      - run:
           name: Run Detekt
           command: ./gradlew detekt
       - run:
