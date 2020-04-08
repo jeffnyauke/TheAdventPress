@@ -20,6 +20,8 @@ package press.advent.android
 
 import android.content.Context
 import com.google.android.play.core.splitcompat.SplitCompatApplication
+import javax.inject.Inject
+import kotlin.random.Random
 import press.advent.android.di.DaggerAppComponent
 import press.advent.core.BuildConfig
 import press.advent.core.di.CoreComponent
@@ -27,8 +29,6 @@ import press.advent.core.di.DaggerCoreComponent
 import press.advent.core.di.modules.ContextModule
 import press.advent.core.utils.ThemeUtils
 import timber.log.Timber
-import javax.inject.Inject
-import kotlin.random.Random
 
 /**
  * Base class for maintaining global application state.
