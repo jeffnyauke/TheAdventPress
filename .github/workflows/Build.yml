@@ -24,6 +24,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: Decode local.properties
+        run: echo "signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }}" > ./local.properties
+      - name: Decode local.properties
+        run: echo "signing.key.password=${{ secrets.SIGNING_KEY_PASSWORD }}" > ./local.properties
+      - name: Decode local.properties
+        run: echo "signing.store.file=${{ secrets.SIGNING_STORE_FILE }}" > ./local.properties
+      - name: Decode local.properties
+        run: echo "signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }}" > ./local.properties
+
       # Step 2: Decode Google services configuration file
       - name: Decode google-services.json
         env:
@@ -46,6 +55,12 @@ jobs:
       - name: Assemble Debug APK
         run: ./gradlew assembleqaDebug
 
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/app-debug.apk
+
       # Step 4: Assemble debug test apk to send to firebase test lab
       - name: Assemble Debug Test APK
         run: ./gradlew assembleqaDebugAndroidTest
@@ -57,3 +72,11 @@ jobs:
           arg-spec: '.github/configs/test-lab-config-qa.yml:android-pixel-4'
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+
+      - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v1
+          with:
+            file: ./coverage.xml
+            flags: unittests,uitests
+            name: codecov-umbrella
+            fail_ci_if_error: true

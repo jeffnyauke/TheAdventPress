@@ -13,6 +13,9 @@ jobs:
       JVM_OPTS: -Xmx4g
     steps:
       - checkout
+      - run:
+          name: Create release.keystore.jks
+          command: echo $RELEASE_KEYSTORE_BASE64 | base64 -d > release.keystore.jks
       - run: echo "signing.key.alias=$SIGNING_KEY_ALIAS" >> local.properties
       - run: echo "signing.key.password=$SIGNING_KEY_PASSWORD" >> local.properties
       - run: echo "signing.store.file=$SIGNING_STORE_FILE" >> local.properties
