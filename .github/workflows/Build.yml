@@ -49,6 +49,9 @@ jobs:
         run: |
           cat > local.properties << ENDOFFILE
 
+          marvel.key.public=${{ secrets.MARVEL_KEY_PUBLIC }}
+          marvel.key.private=${{ secrets.MARVEL_KEY_PRIVATE }}
+
           signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }}
           signing.key.password=${{ secrets.SIGNING_KEY_APASSWORD }}
           signing.store.file=key.jks
