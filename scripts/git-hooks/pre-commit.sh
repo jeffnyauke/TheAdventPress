@@ -1,8 +1,11 @@
-#!/bin/sh
-echo "Running static analysis for project..."
+#!/bin/bash
+echo "Running static analysis..."
 
-#JAVA_HOME="C:\Program Files\Java\jdk1.8.0_181"
-#export JAVA_HOME
+JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME
+
+#set JAVA_HOME=C:\Program Files\Java\jdk1.6.0_32
+#set PATH=%PATH%;%JAVA_HOME%\bin
 
 OUTPUT="/tmp/analysis-result"
 ./gradlew detekt ktlint lintDevDebug spotlessCheck --daemon > ${OUTPUT}
@@ -18,7 +21,6 @@ if [ ${EXIT_CODE} -ne 0 ]; then
 else
     rm ${OUTPUT}
     echo "*********************************************"
-    echo "            Static Analysis Success          "
-    echo "               No problems found             "
+    echo "      Static analysis no problems found      "
     echo "*********************************************"
 fi
