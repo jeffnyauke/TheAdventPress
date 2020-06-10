@@ -20,10 +20,10 @@
  * Configuration version of all build dependencies
  */
 object BuildDependenciesVersions {
-    const val KOTLIN = "1.3.61"
+    const val KOTLIN = "1.3.71"
     const val APPCOMPAT = "1.1.0"
     const val MATERIAL = "1.1.0"
-    const val COROUTINES = "1.3.3"
+    const val COROUTINES = "1.3.7"
     const val ROOM = "2.2.5"
     const val RECYCLE_VIEW = "1.1.0"
     const val NAVIGATION = "2.3.0-alpha04"

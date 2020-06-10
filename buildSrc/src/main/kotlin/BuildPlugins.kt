@@ -29,6 +29,7 @@ object BuildPlugins {
     const val KOTLIN_KAPT = "kotlin-kapt"
     const val KOTLIN_ALLOPEN = "kotlin-allopen"
 
+    const val GOOGLE_SERVICES = "com.google.gms.google-services"
     const val FIREBASE_CRASHLYTICS = "com.google.firebase.crashlytics"
     const val FIREBASE_PERFORMANCE = "com.google.firebase.performance"
 

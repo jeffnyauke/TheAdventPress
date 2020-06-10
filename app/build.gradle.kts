@@ -30,6 +30,7 @@ plugins {
     id(BuildPlugins.NAVIGATION_SAFE_ARGS)
     id(BuildPlugins.JACOCO)
     id(BuildPlugins.GRAPH_GENERATOR)
+    id(BuildPlugins.GOOGLE_SERVICES)
     id(BuildPlugins.FIREBASE_CRASHLYTICS)
 }
 
@@ -51,8 +52,8 @@ android {
 
         vectorDrawables.useSupportLibrary = BuildAndroidConfig.SUPPORT_LIBRARY_VECTOR_DRAWABLES
         testInstrumentationRunner = BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
-        testInstrumentationRunnerArguments =
-            BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER_ARGUMENTS
+        testInstrumentationRunnerArguments(BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER_ARGUMENTS)
+
     }
 
     signingConfigs {
@@ -68,9 +69,9 @@ android {
         getByName(BuildType.RELEASE) {
             proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
             signingConfig = signingConfigs.getByName(name)
-
             isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
             isTestCoverageEnabled = BuildTypeRelease.isTestCoverageEnabled
+
             buildConfigBooleanField("ENABLE_CRASHLYTICS", BuildTypeRelease.isCrashlyticsEnabled)
         }
 
@@ -152,6 +153,7 @@ dependencies {
     implementation(Dependencies.NAVIGATION_FRAGMENT)
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.LOGGING)
+    implementation(Dependencies.FIREBASE_ANALYTICS)
     implementation(Dependencies.FIREBASE_CRASHLYTICS)
     implementation(Dependencies.PLAY_CORE)
     implementation(Dependencies.DAGGER)

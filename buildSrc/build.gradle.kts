@@ -36,18 +36,19 @@ kotlinDslPluginOptions {
 }
 
 object PluginsVersions {
-    const val GRADLE_ANDROID = "3.5.3"
+    const val GRADLE_ANDROID = "4.1.0-alpha10"
     const val GRADLE_VERSIONS = "0.27.0"
-    const val KOTLIN = "1.3.61"
+    const val KOTLIN = "1.3.71"
     const val NAVIGATION = "2.3.0-alpha04"
-    const val JACOCO = "0.16.0-SNAPSHOT"
+    const val JACOCO = "0.17.0-SNAPSHOT"
     const val FABRIC = "1.31.2"
     const val DOKKA = "0.10.0"
     const val KTLINT = "0.36.0"
     const val SPOTLESS = "3.26.1"
     const val DETEKT = "1.2.2"
     const val GRAPH_GENERATOR = "0.6.0-SNAPSHOT"
-    const val FIREBASE_CRASHLYTICS = "2.0.0-beta02"
+    const val GOOGLE_SERVICES = "4.3.3"
+    const val FIREBASE_CRASHLYTICS = "2.1.0"
     const val FIREBASE_PERFORMANCE = "1.3.1"
 }
 
@@ -63,6 +64,7 @@ dependencies {
     implementation("com.pinterest:ktlint:${PluginsVersions.KTLINT}")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginsVersions.SPOTLESS}")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginsVersions.DETEKT}")
+    implementation("com.google.gms:google-services:${PluginsVersions.GOOGLE_SERVICES}")
     implementation("com.google.firebase:firebase-crashlytics-gradle:${PluginsVersions.FIREBASE_CRASHLYTICS}")
     implementation("com.google.firebase:perf-plugin:${PluginsVersions.FIREBASE_PERFORMANCE}")
 }

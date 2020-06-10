@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="TheAdventPress.app" target="1.8" />
+      <module name="TheAdventPress.buildSrc" target="1.8" />
+      <module name="TheAdventPress.commons.ui" target="1.8" />
+      <module name="TheAdventPress.commons.views" target="1.8" />
+      <module name="TheAdventPress.core" target="1.8" />
+      <module name="TheAdventPress.features.articles_favorites" target="1.8" />
+      <module name="TheAdventPress.features.articles_list" target="1.8" />
+      <module name="TheAdventPress.features.home" target="1.8" />
+      <module name="TheAdventPress.libraries.test_utils" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

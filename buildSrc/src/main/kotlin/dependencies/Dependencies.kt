@@ -66,7 +66,7 @@ object Dependencies {
     const val PREFERENCES =
         "androidx.preference:preference-ktx:${BuildDependenciesVersions.APPCOMPAT}"
     const val FIREBASE_ANALYTICS =
-        "com.google.firebase:firebase-analytics:${BuildDependenciesVersions.FIREBASE_CRASHLYTICS}"
+        "com.google.firebase:firebase-analytics:${BuildDependenciesVersions.FIREBASE_ANALYTICS}"
     const val FIREBASE_ADMOB =
         "com.google.android.gms:play-services-ads:${BuildDependenciesVersions.FIREBASE_ADMOB}"
     const val FIREBASE_APP_INDEXING =

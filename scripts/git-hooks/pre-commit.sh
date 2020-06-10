@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "Running static analysis for project..."
 
-JAVA_HOME="C:\Program Files\Java\jdk1.8.0_181"
-export JAVA_HOME
+#JAVA_HOME="C:\Program Files\Java\jdk1.8.0_181"
+#export JAVA_HOME
 
 OUTPUT="/tmp/analysis-result"
 ./gradlew detekt ktlint lintDevDebug spotlessCheck --daemon > ${OUTPUT}
