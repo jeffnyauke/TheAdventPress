@@ -60,7 +60,7 @@ jobs:
 
       # Step 3: Check the code with ktlint, you can remove this job if you don't use ktlint
       - name: Run Kotlin Linter
-        run: ./gradlew ktlintqaDebugCheck
+        run: ./gradlew ktlint
 
       # Step 3: Check the code with Android linter
       - name: Run Android Linter
