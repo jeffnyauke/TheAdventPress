@@ -89,6 +89,7 @@
             style="@style/AppTheme.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/fragment_character_detail_favorites_icon_description"
             android:layout_margin="@dimen/character_detail_floating_button_margin"
             android:onClick="@{() -> viewModel.addCharacterToFavorite()}"
             app:layout_anchor="@id/appbar"
