@@ -21,7 +21,7 @@ package press.advent.commons.ui.extensions
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import org.hamcrest.Matchers
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThat
@@ -47,7 +47,7 @@ class FragmentExtensionsTest : TestRobolectric() {
             assertThat(createdViewModel, Matchers.instanceOf(TestViewModel::class.java))
             assertEquals(expectedState, createdViewModel.state)
 
-            val providedViewModel = ViewModelProviders.of(it).get(TestViewModel::class.java)
+            val providedViewModel = ViewModelProvider(it).get(TestViewModel::class.java)
             assertThat(providedViewModel, Matchers.instanceOf(TestViewModel::class.java))
             assertEquals(expectedState, providedViewModel.state)
         }
@@ -70,7 +70,7 @@ class FragmentExtensionsTest : TestRobolectric() {
             assertEquals(expectedState, createdViewModel.state)
 
             val providedViewModel =
-                ViewModelProviders.of(it).get(identifierViewModel, TestViewModel::class.java)
+                ViewModelProvider(it).get(identifierViewModel, TestViewModel::class.java)
             assertThat(providedViewModel, Matchers.instanceOf(TestViewModel::class.java))
             assertEquals(expectedState, providedViewModel.state)
         }
@@ -83,7 +83,7 @@ class FragmentExtensionsTest : TestRobolectric() {
 
         fragmentScenario.onFragment {
             it.viewModel(identifierViewModel) { TestViewModel() }
-            ViewModelProviders.of(it).get("Wrong Identifier", TestViewModel::class.java)
+            ViewModelProvider(it).get("Wrong Identifier", TestViewModel::class.java)
         }
     }
 
@@ -92,7 +92,7 @@ class FragmentExtensionsTest : TestRobolectric() {
         val fragmentScenario = launchFragmentInContainer<TestFragment>()
 
         fragmentScenario.onFragment {
-            ViewModelProviders.of(it).get(TestViewModel::class.java)
+            ViewModelProvider(it).get(TestViewModel::class.java)
         }
     }
 }

@@ -29,6 +29,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import press.advent.core.BuildConfig
 import press.advent.core.network.repositiories.MarvelRepository
 import press.advent.core.network.services.MarvelService
 

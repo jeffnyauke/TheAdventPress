@@ -23,6 +23,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import press.advent.core.BuildConfig
 import press.advent.core.di.modules.NetworkModule
 import press.advent.core.network.services.MarvelService
 import retrofit2.Retrofit
