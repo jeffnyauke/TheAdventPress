@@ -1,0 +1,46 @@
+name: Dependency Checks Workflow
+
+on:
+  schedule:
+    - cron: "0 12 * * 3"
+
+jobs:
+
+  checkDependencies:
+    name: Check dependency versions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create local.properties
+        run: echo "" > local.properties
+      - name: Calculate changed modules
+        run: bash ./gradlew dependencyUpdates -DoutputFormatter=json
+      - name: Parse dependency content
+        run: bash ./gradlew parseDependencyJson
+      - name: Upload dependency updates
+        uses: actions/upload-artifact@v1
+        with:
+          name: dependency_updates
+          path: build/dependencyUpdates/report.txt
+
+  slackMessage:
+    name: Post message to slack
+    runs-on: ubuntu-latest
+    needs: checkDependencies
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download dependency updates
+        uses: actions/download-artifact@v1
+        with:
+          name: dependency_updates
+      - name: Prepare output content
+        run: |
+          content="$(echo "$(cat dependency_updates/report.txt)")"
+          echo ::set-env name=DEPENDENCY_UPDATES::"$content"
+      - name: Slack notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_DEPENDENCY_WEBHOOK }}
+          SLACK_CUSTOM_PAYLOAD: '{"text":"Updated Publish Dependencies
+              available "\\n \\n" {{ DEPENDENCY_UPDATES
+              }}","username": "Android Dependency Updates"}'
+        uses: Ilshidur/action-slack@master
