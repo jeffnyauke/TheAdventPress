@@ -25,10 +25,43 @@ jobs:
         run: chmod +x gradlew
 
       # Step 2: Decode Google services configuration file
-      - name: Decode google-services.json
+      - name: Add secrets
+        run: |
+          echo $SIGNING_STORE_FILE | base64 -d > app/key.jks
+          mkdir -p app/src/debug/dev/
+          echo $FIREBASE_CONFIG_DEV_DEBUG | base64 -d > app/src/debug/dev/google-services.json
+          mkdir -p app/src/release/dev/
+          echo $FIREBASE_CONFIG_DEV_RELEASE | base64 -d > app/src/release/dev/google-services.json
+          mkdir -p app/src/debug/qa/
+          echo $FIREBASE_CONFIG_QA_DEBUG | base64 -d > app/src/debug/qa/google-services.json
+          mkdir -p app/src/release/qa/
+          echo $FIREBASE_CONFIG_QA_RELEASE | base64 -d > app/src/release/qa/google-services.json
+          mkdir -p app/src/debug/prod/
+          echo $FIREBASE_CONFIG_PROD_DEBUG | base64 -d > app/src/debug/prod/google-services.json
+          mkdir -p app/src/release/prod/
+          echo $FIREBASE_CONFIG_PROD_RELEASE | base64 -d > app/src/release/prod/google-services.json
         env:
-          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
-        run: echo $FIREBASE_CONFIG > app/google-services.json
+          SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
+          FIREBASE_CONFIG_DEV_DEBUG: ${{ secrets.FIREBASE_CONFIG_DEV_DEBUG }}
+          FIREBASE_CONFIG_DEV_RELEASE: ${{ secrets.FIREBASE_CONFIG_DEV_RELEASE }}
+          FIREBASE_CONFIG_QA_DEBUG: ${{ secrets.FIREBASE_CONFIG_QA_DEBUG }}
+          FIREBASE_CONFIG_QA_RELEASE: ${{ secrets.FIREBASE_CONFIG_QA_RELEASE }}
+          FIREBASE_CONFIG_PROD_DEBUG: ${{ secrets.FIREBASE_CONFIG_PROD_DEBUG }}
+          FIREBASE_CONFIG_PROD_RELEASE: ${{ secrets.FIREBASE_CONFIG_PROD_RELEASE }}
+
+      # Step 2: Decode local.properties configuration file
+      - name: Decode local.properties
+        run: |
+          cat > local.properties << ENDOFFILE
+
+          marvel.key.public=${{ secrets.MARVEL_KEY_PUBLIC }}
+          marvel.key.private=${{ secrets.MARVEL_KEY_PRIVATE }}
+
+          signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }}
+          signing.key.password=${{ secrets.SIGNING_KEY_APASSWORD }}
+          signing.store.file=key.jks
+          signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }}
+          ENDOFFILE
 
       # Step 3: Decode the service account json key, needed on the next job
       - name: Decode service account key

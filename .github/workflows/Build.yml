@@ -41,8 +41,12 @@ jobs:
           echo $FIREBASE_CONFIG_PROD_RELEASE | base64 -d > app/src/release/prod/google-services.json
         env:
           SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
-          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
-          FIREBASE_CONFIG_DEBUG: ${{ secrets.FIREBASE_CONFIG_DEBUG }}
+          FIREBASE_CONFIG_DEV_DEBUG: ${{ secrets.FIREBASE_CONFIG_DEV_DEBUG }}
+          FIREBASE_CONFIG_DEV_RELEASE: ${{ secrets.FIREBASE_CONFIG_DEV_RELEASE }}
+          FIREBASE_CONFIG_QA_DEBUG: ${{ secrets.FIREBASE_CONFIG_QA_DEBUG }}
+          FIREBASE_CONFIG_QA_RELEASE: ${{ secrets.FIREBASE_CONFIG_QA_RELEASE }}
+          FIREBASE_CONFIG_PROD_DEBUG: ${{ secrets.FIREBASE_CONFIG_PROD_DEBUG }}
+          FIREBASE_CONFIG_PROD_RELEASE: ${{ secrets.FIREBASE_CONFIG_PROD_RELEASE }}
 
       # Step 2: Decode local.properties configuration file
       - name: Decode local.properties
