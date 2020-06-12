@@ -78,12 +78,6 @@ jobs:
       - name: Assemble Debug APK
         run: ./gradlew assembleqaDebug
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
-
       # Step 4: Assemble debug test apk to send to firebase test lab
       - name: Assemble Debug Test APK
         run: ./gradlew assembleqaDebugAndroidTest
