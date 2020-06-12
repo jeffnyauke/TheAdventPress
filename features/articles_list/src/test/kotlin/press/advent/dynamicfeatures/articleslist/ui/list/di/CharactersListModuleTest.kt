@@ -19,12 +19,14 @@
 package press.advent.dynamicfeatures.articleslist.ui.list.di
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.CoroutineScope
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import press.advent.commons.ui.extensions.viewModel
 import press.advent.core.network.repositiories.MarvelRepository
 import press.advent.dynamicfeatures.articleslist.ui.list.CharactersListFragment
 import press.advent.dynamicfeatures.articleslist.ui.list.CharactersListViewModel
