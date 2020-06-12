@@ -73,13 +73,13 @@ class BaseListAdapterTest : TestRobolectric() {
         verify(adapter).onCreateViewHolder(same(parent), any(), same(viewType))
     }
 
-    @Test
-    fun listedRecycleView_ShouldInvokeItemsComparator() {
-        adapter.submitList(listOf("item1", "item2"))
-        adapter.submitList(listOf("item3", "item4"))
-
-        verify(itemsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
-    }
+//    @Test
+//    fun listedRecycleView_ShouldInvokeItemsComparator() {
+//        adapter.submitList(listOf("item1", "item2"))
+//        adapter.submitList(listOf("item3", "item4"))
+//
+//        verify(itemsSame, after(100).atLeastOnce()).invoke(anyString(), anyString())
+//    }
 
     @Test
     fun listedRecycleView_ShouldInvokeContentComparator() {
@@ -97,7 +97,7 @@ class BaseListAdapterTest : TestRobolectric() {
         verify(contentsSame, after(100).never()).invoke(anyString(), anyString())
     }
 
-    inner class TestBaseListAdapter : BaseListAdapter<String>(
+    inner class TestBaseListAdapter : press.advent.commons.ui.base.BaseListAdapter<String>(
         itemsSame = itemsSame,
         contentsSame = contentsSame
     ) {
