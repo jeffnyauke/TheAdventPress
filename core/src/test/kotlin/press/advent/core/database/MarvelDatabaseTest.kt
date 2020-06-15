@@ -33,6 +33,7 @@ class MarvelDatabaseTest : TestRobolectric() {
 
     @Mock
     lateinit var marvelDatabase: MarvelDatabase
+
     @Mock
     lateinit var characterFavoriteDao: CharacterFavoriteDao
 

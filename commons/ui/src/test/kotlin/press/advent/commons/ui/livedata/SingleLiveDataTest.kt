@@ -28,7 +28,9 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito
-import org.mockito.Mockito.*
+import org.mockito.Mockito.anyString
+import org.mockito.Mockito.never
+import org.mockito.Mockito.verify
 import press.advent.commons.ui.extensions.observe
 import press.advent.libraries.testutils.lifecycle.TestLifecycleOwner
 

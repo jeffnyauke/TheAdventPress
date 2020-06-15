@@ -19,7 +19,9 @@
 package press.advent.commons.ui.bindings
 
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.databinding.BindingAdapter
 
 /**

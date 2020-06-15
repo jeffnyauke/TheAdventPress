@@ -48,6 +48,7 @@ class CharactersFavoriteViewModelTest {
 
     @MockK(relaxed = true)
     lateinit var repository: CharacterFavoriteRepository
+
     @MockK(relaxed = true)
     lateinit var stateObserver: Observer<CharactersFavoriteViewState>
     lateinit var viewModel: CharactersFavoriteViewModel

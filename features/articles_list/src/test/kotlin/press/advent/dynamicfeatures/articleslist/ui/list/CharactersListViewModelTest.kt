@@ -47,8 +47,10 @@ class CharactersListViewModelTest {
 
     @MockK(relaxed = true)
     lateinit var dataSourceFactory: CharactersPageDataSourceFactory
+
     @MockK(relaxed = true)
     lateinit var stateObserver: Observer<CharactersListViewState>
+
     @MockK(relaxed = true)
     lateinit var eventObserver: Observer<CharactersListViewEvent>
     lateinit var viewModel: CharactersListViewModel

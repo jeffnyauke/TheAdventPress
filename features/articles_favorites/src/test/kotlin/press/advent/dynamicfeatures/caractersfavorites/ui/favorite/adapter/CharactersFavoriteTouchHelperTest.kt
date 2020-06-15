@@ -18,11 +18,18 @@
 
 package press.advent.dynamicfeatures.caractersfavorites.ui.favorite.adapter
 
-import androidx.recyclerview.widget.ItemTouchHelper.*
+import androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_IDLE
+import androidx.recyclerview.widget.ItemTouchHelper.LEFT
+import androidx.recyclerview.widget.ItemTouchHelper.RIGHT
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.NO_POSITION
-import io.mockk.*
+import io.mockk.Called
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+import io.mockk.verify
+import io.mockk.verifyAll
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before

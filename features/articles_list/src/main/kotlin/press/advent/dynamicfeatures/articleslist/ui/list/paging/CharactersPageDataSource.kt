@@ -50,6 +50,7 @@ open class CharactersPageDataSource @Inject constructor(
 ) : PageKeyedDataSource<Int, CharacterItem>() {
 
     val networkState = MutableLiveData<NetworkState>()
+
     @VisibleForTesting(otherwise = PRIVATE)
     var retry: (() -> Unit)? = null
 

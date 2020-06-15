@@ -20,7 +20,12 @@ package press.advent.dynamicfeatures.articleslist.ui.list.paging
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.never
+import com.nhaarman.mockitokotlin2.same
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Rule
@@ -40,8 +45,10 @@ class CharactersPageDataSourceFactoryTest {
 
     @Spy
     lateinit var providerDataSource: Provider<CharactersPageDataSource>
+
     @Spy
     lateinit var sourceLiveData: MutableLiveData<CharactersPageDataSource>
+
     @InjectMocks
     lateinit var dataSourceFactory: CharactersPageDataSourceFactory
 

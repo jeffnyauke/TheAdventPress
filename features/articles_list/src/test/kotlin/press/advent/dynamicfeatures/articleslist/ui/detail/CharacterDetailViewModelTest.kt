@@ -20,8 +20,12 @@ package press.advent.dynamicfeatures.articleslist.ui.detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Before
@@ -46,12 +50,16 @@ class CharacterDetailViewModelTest {
 
     @MockK(relaxed = true)
     lateinit var marvelRepository: MarvelRepository
+
     @MockK(relaxed = true)
     lateinit var characterFavoriteRepository: CharacterFavoriteRepository
+
     @MockK
     lateinit var characterDetailMapper: CharacterDetailMapper
+
     @MockK(relaxed = true)
     lateinit var stateObserver: Observer<CharacterDetailViewState>
+
     @MockK(relaxed = true)
     lateinit var dataObserver: Observer<CharacterDetail>
     lateinit var viewModel: CharacterDetailViewModel

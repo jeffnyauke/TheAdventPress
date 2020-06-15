@@ -19,7 +19,6 @@
 package plugins
 
 import BuildTasksGroups
-import utils.isLinuxOrMacOs
 
 tasks {
     register<Copy>("copyGitHooks") {
@@ -39,9 +38,9 @@ tasks {
         commandLine("chmod")
         args("-R", "+x", ".git/hooks/")
         dependsOn(named("copyGitHooks"))
-        onlyIf {
-            isLinuxOrMacOs()
-        }
+//        onlyIf {
+//            isLinuxOrMacOs()
+//        }
         doLast {
             logger.info("Git hooks installed successfully.")
         }

@@ -37,12 +37,16 @@ class RecyclerViewItemDecorationTest {
 
     @MockK(relaxed = true)
     lateinit var viewDecorate: View
+
     @MockK(relaxed = true)
     lateinit var stateRecyclerView: RecyclerView.State
+
     @MockK(relaxed = true)
     lateinit var parentRecyclerView: RecyclerView
+
     @MockK(relaxed = true)
     lateinit var gridLayoutManager: GridLayoutManager
+
     @MockK(relaxed = true)
     lateinit var linearLayoutManager: LinearLayoutManager
 

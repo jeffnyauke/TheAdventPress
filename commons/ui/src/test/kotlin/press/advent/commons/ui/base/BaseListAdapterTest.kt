@@ -22,7 +22,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.after
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.same
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -45,10 +51,13 @@ class BaseListAdapterTest : TestRobolectric() {
 
     @Mock
     lateinit var viewHolder: RecyclerView.ViewHolder
+
     @Mock
     lateinit var itemsSame: Comparator
+
     @Mock
     lateinit var contentsSame: Comparator
+
     @Spy
     lateinit var adapter: TestBaseListAdapter
 

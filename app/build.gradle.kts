@@ -19,7 +19,12 @@
 import dependencies.AnnotationProcessorsDependencies
 import dependencies.DebugDependencies
 import dependencies.Dependencies
-import extensions.*
+import extensions.addTestsDependencies
+import extensions.buildConfigBooleanField
+import extensions.debugImplementation
+import extensions.getLocalProperty
+import extensions.implementation
+import extensions.kapt
 
 plugins {
     id(BuildPlugins.ANDROID_APPLICATION)

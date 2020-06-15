@@ -23,8 +23,17 @@ import android.view.ViewGroup
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
-import com.nhaarman.mockitokotlin2.*
-import org.junit.Assert.*
+import com.nhaarman.mockitokotlin2.after
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.never
+import com.nhaarman.mockitokotlin2.same
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -47,12 +56,16 @@ class BasePagedListAdapterTest : TestRobolectric() {
 
     @Mock
     lateinit var viewHolder: RecyclerView.ViewHolder
+
     @Mock
     lateinit var itemsSame: Comparator
+
     @Mock
     lateinit var contentsSame: Comparator
+
     @Mock
     lateinit var recyclerView: RecyclerView
+
     @Spy
     lateinit var adapter: TestBasePagedListAdapter
 

@@ -19,8 +19,13 @@
 package press.advent.dynamicfeatures.caractersfavorites.ui.favorite.di
 
 import androidx.lifecycle.ViewModel
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.slot
+import io.mockk.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before

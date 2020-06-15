@@ -23,7 +23,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import press.advent.android.App
 import press.advent.commons.ui.base.BaseFragment
@@ -135,7 +134,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
             intent = requireActivity().intent
         )
 
-        navController.observe(viewLifecycleOwner, Observer { it: NavController ->
+        navController.observe(viewLifecycleOwner, Observer {
             viewModel.navigationControllerChanged(it)
             setupActionBarWithNavController(requireCompatActivity(), it)
         })

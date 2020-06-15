@@ -22,7 +22,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.hamcrest.Matchers.instanceOf
-import org.junit.Assert.*
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
 import press.advent.libraries.testutils.robolectric.TestRobolectric

@@ -20,10 +20,18 @@ package press.advent.dynamicfeatures.articleslist.ui.list.paging
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PageKeyedDataSource.*
-import io.mockk.*
+import androidx.paging.PageKeyedDataSource.LoadCallback
+import androidx.paging.PageKeyedDataSource.LoadInitialCallback
+import androidx.paging.PageKeyedDataSource.LoadInitialParams
+import androidx.paging.PageKeyedDataSource.LoadParams
+import io.mockk.Called
+import io.mockk.MockKAnnotations
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -52,10 +60,13 @@ class CharactersPageDataSourceTest {
 
     @MockK(relaxed = true)
     lateinit var repository: MarvelRepository
+
     @MockK(relaxed = true)
     lateinit var mapper: CharacterItemMapper
+
     @MockK(relaxed = true)
     lateinit var networkState: MutableLiveData<NetworkState>
+
     @MockK(relaxed = true)
     lateinit var retry: Callback
 

@@ -1,7 +1,7 @@
 ## Kotlin Sample App
 [![CircleCI](https://circleci.com/gh/jeffnyauke/TheAdventPress/tree/master.svg?style=shield)](https://circleci.com/gh/jeffnyauke/TheAdventPress/tree/master)
 [![codecov](https://codecov.io/gh/jeffnyauke/TheAdventPress/branch/master/graph/badge.svg)](https://codecov.io/gh/jeffnyauke/TheAdventPress)
-[![Codacy](https://api.codacy.com/project/badge/Grade/7529460f75c24b51a446103e35433883)](https://www.codacy.com/manual/jeffnyauke/TheAdventPress?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jeffnyauke/TheAdventPress&amp;utm_campaign=Badge_Grade)  
+[![Codacy](https://api.codacy.com/project/badge/Grade/7529460f75c24b51a446103e35433883)](https://www.codacy.com/manual/jeffnyauke/TheAdventPress?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jeffnyauke/TheAdventPress&amp;utm_campaign=Badge_Grade)
 [![CodeStyle](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](http://kotlinlang.org/)
 [![Gradle](https://img.shields.io/badge/gradle-6.1-blue.svg)](https://lv.binarybabel.org/catalog/gradle/latest)

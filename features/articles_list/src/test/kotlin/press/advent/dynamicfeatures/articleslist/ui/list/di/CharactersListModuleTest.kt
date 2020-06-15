@@ -20,8 +20,13 @@ package press.advent.dynamicfeatures.articleslist.ui.list.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.mockk.*
+import io.mockk.MockKAnnotations
+import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import org.junit.Assert.assertEquals
 import org.junit.Before

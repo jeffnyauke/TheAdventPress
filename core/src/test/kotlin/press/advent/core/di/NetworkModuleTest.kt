@@ -18,7 +18,12 @@
 
 package press.advent.core.di
 
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.argumentCaptor
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert.assertEquals
 import org.junit.Before
