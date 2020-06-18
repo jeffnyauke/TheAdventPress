@@ -62,7 +62,11 @@ jobs:
           signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }}
           ENDOFFILE
 
-      # Step 3: Check the code with ktlint
+      # Step 3: Check the code with Detekt
+      - name: Run Detekt
+        run: ./gradlew detekt
+
+      # Step 3: Check the code with Ktlint
       - name: Run Kotlin Linter
         run: ./gradlew ktlint
 
@@ -70,7 +74,11 @@ jobs:
       - name: Run Android Linter
         run: ./gradlew lintQaDebug
 
-      # Step 4: Yun your unit tests
+      # Step 3: Check the code with Spotless
+      - name: Run Spotless
+        run: ./gradlew spotlessKotlinCheck
+
+      # Step 4: Run your unit tests
       - name: Run Unit Tests
         run: ./gradlew testQaDebugUnitTest
 

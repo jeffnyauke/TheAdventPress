@@ -1,4 +1,4 @@
-name: Dependency Checks Workflow
+name: Dependency Workflow
 
 on:
   schedule:
@@ -11,8 +11,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Create local.properties
-        run: echo "" > local.properties
+      - name: Add secrets
+        run: |
+          echo $SIGNING_STORE_FILE | base64 -d > app/key.jks
+          mkdir -p app/src/debug/dev/
+          echo $FIREBASE_CONFIG_DEV_DEBUG | base64 -d > app/src/debug/dev/google-services.json
+          mkdir -p app/src/release/dev/
+          echo $FIREBASE_CONFIG_DEV_RELEASE | base64 -d > app/src/release/dev/google-services.json
+          mkdir -p app/src/debug/qa/
+          echo $FIREBASE_CONFIG_QA_DEBUG | base64 -d > app/src/debug/qa/google-services.json
+          mkdir -p app/src/release/qa/
+          echo $FIREBASE_CONFIG_QA_RELEASE | base64 -d > app/src/release/qa/google-services.json
+          mkdir -p app/src/debug/prod/
+          echo $FIREBASE_CONFIG_PROD_DEBUG | base64 -d > app/src/debug/prod/google-services.json
+          mkdir -p app/src/release/prod/
+          echo $FIREBASE_CONFIG_PROD_RELEASE | base64 -d > app/src/release/prod/google-services.json
+        env:
+          SIGNING_STORE_FILE: ${{ secrets.SIGNING_STORE_FILE }}
+          FIREBASE_CONFIG_DEV_DEBUG: ${{ secrets.FIREBASE_CONFIG_DEV_DEBUG }}
+          FIREBASE_CONFIG_DEV_RELEASE: ${{ secrets.FIREBASE_CONFIG_DEV_RELEASE }}
+          FIREBASE_CONFIG_QA_DEBUG: ${{ secrets.FIREBASE_CONFIG_QA_DEBUG }}
+          FIREBASE_CONFIG_QA_RELEASE: ${{ secrets.FIREBASE_CONFIG_QA_RELEASE }}
+          FIREBASE_CONFIG_PROD_DEBUG: ${{ secrets.FIREBASE_CONFIG_PROD_DEBUG }}
+          FIREBASE_CONFIG_PROD_RELEASE: ${{ secrets.FIREBASE_CONFIG_PROD_RELEASE }}
+      - name: Decode local.properties
+        run: |
+          cat > local.properties << ENDOFFILE
+
+          marvel.key.public=${{ secrets.MARVEL_KEY_PUBLIC }}
+          marvel.key.private=${{ secrets.MARVEL_KEY_PRIVATE }}
+
+          signing.key.alias=${{ secrets.SIGNING_KEY_ALIAS }}
+          signing.key.password=${{ secrets.SIGNING_KEY_APASSWORD }}
+          signing.store.file=key.jks
+          signing.store.password=${{ secrets.SIGNING_STORE_PASSWORD }}
+          ENDOFFILE
       - name: Calculate changed modules
         run: bash ./gradlew dependencyUpdates -DoutputFormatter=json
       - name: Parse dependency content
