@@ -87,21 +87,21 @@ jobs:
         run: ./gradlew assembleQaDebug
 
       # Step 4: Assemble debug test apk to send to firebase test lab
-      - name: Assemble Debug Test APK
-        run: ./gradlew assembleQaDebugAndroidTest
-
-      # Step 4: Run instrumented tests on firebase test lab
-      - name: Run tests on Firebase Test Lab
-        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
-        with:
-          arg-spec: '.github/configs/test-lab-config-qa.yml:android-pixel-4'
-        env:
-          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage.xml
-          flags: unittests,uitests
-          name: codecov-umbrella
-          fail_ci_if_error: true
+#      - name: Assemble Debug Test APK
+#        run: ./gradlew assembleQaDebugAndroidTest
+#
+#      # Step 4: Run instrumented tests on firebase test lab
+#      - name: Run tests on Firebase Test Lab
+#        uses: asadmansr/Firebase-Test-Lab-Action@v1.0
+#        with:
+#          arg-spec: '.github/configs/test-lab-config-qa.yml:android-pixel-4'
+#        env:
+#          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT }}
+#
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v1
+#        with:
+#          file: ./coverage.xml
+#          flags: unittests,uitests
+#          name: codecov-umbrella
+#          fail_ci_if_error: true

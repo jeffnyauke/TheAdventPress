@@ -50,7 +50,6 @@ android {
         applicationId = BuildAndroidConfig.APPLICATION_ID
         minSdkVersion(BuildAndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(BuildAndroidConfig.TARGET_SDK_VERSION)
-        buildToolsVersion(BuildAndroidConfig.BUILD_TOOLS_VERSION)
 
         versionCode = BuildAndroidConfig.VERSION_CODE
         versionName = BuildAndroidConfig.VERSION_NAME
@@ -129,6 +128,10 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true
+    }
+
+    packagingOptions {
+        exclude("META-INF/LGPL2.1")
     }
 
     sourceSets {

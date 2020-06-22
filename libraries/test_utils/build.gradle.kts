@@ -31,7 +31,9 @@ dependencies {
 
     implementation(TestDependencies.MOCKITO)
     implementation(TestDependencies.ASSERTJ)
-    implementation(TestDependencies.ROBOELECTRIC)
+    implementation(TestDependencies.ROBOELECTRIC) {
+        exclude(group = "org.apache.maven", module = "maven-ant-tasks")
+    }
     implementation(TestDependencies.ROOM)
     implementation(TestDependencies.CORE)
     implementation(TestDependencies.ARCH_CORE)
